@@ -1,1 +1,5 @@
 .gradle
+build
+.idea/
+junit_hello_world.iml
+out/

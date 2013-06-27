@@ -3,3 +3,5 @@ build
 .idea/
 junit_hello_world.iml
 out/
+junit_hello_world.ipr
+junit_hello_world.iws

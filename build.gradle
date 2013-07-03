@@ -24,3 +24,5 @@ task acceptanceTest(type: Test, dependsOn: acceptanceTestClasses) {
   classpath = files(testClassesDir) + files(sourceSets.main.output.classesDir) + sourceSets.acceptanceTest.compileClasspath
 }
 
+check.dependsOn acceptanceTest
+

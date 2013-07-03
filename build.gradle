@@ -5,7 +5,22 @@ repositories {
     mavenCentral();
 }
 
+sourceSets {
+  acceptanceTest {
+    java.srcDir 'src/test/acceptanceTest/java'
+    resources.srcDir 'src/test/acceptanceTest/resources'
+    compileClasspath += files(sourceSets.main.output.classesDir)
+  }
+}
+
 dependencies {
-  testCompile 'junit:junit:4.11'
+  acceptanceTestCompile 'junit:junit:4.11'
+}
+
+acceptanceTestClasses.dependsOn classes
+
+task acceptanceTest(type: Test, dependsOn: acceptanceTestClasses) {
+  testClassesDir = sourceSets.acceptanceTest.output.classesDir
+  classpath = files(testClassesDir) + files(sourceSets.main.output.classesDir) + sourceSets.acceptanceTest.compileClasspath
 }
 
